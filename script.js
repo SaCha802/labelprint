@@ -2,7 +2,7 @@ $(document).ready(function () {
   // Function to send cURL request
   function sendCurlRequest(curlCommand) {
     $.ajax({
-      url: 'https://cors-anywhere.herokuapp.com/https://connect.squareup.com/v2/catalog/search-catalog-items',
+      url: 'https://cors-proxy.htmldriven.com/?url=https://connect.squareup.com/v2/catalog/search-catalog-items',
       crossDomain: true,
       method: 'post',
       headers: {
