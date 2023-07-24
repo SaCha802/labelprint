@@ -7,6 +7,7 @@ $(document).ready(function () {
       method: 'post',
       headers: {
         'Square-Version': '2023-07-20',
+        'Access-Control-Allow-Origin: *',
         'Authorization': 'Bearer EAAAERHGm_O9boKOGgOBZHsPW9Kz19K4DWJuTOO6kAmmR13mn2IDh5E2Q8GwZfbF'
       },
       contentType: 'application/json',
