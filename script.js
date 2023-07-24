@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       'Content-Type': 'application/json'
     }
   }
-);
+)
       .then((response) => {
         // Display the response in the responseContainer div
         document.getElementById("responseContainer").innerText = JSON.stringify(response.data, null, 2);
