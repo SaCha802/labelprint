@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   {
     headers: {
       'Square-Version': '2023-07-20',
-      'Authorization': 'Bearer $token',
+      'Authorization': 'Bearer ${token}',
       'Content-Type': 'application/json'
     }
   }
