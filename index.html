@@ -7,9 +7,11 @@
 </head>
 
 <body>
-    <h1>Pychotka Deli Label Printer</h1>
-    <input type="text" id="tokenInput" placeholder="Enter Token" /><br><br>
-    <input type="text" id="skuInput" placeholder="Enter cURL command" /> <br> <br>
+    <h1>Send cURL Request</h1>
+    <label for="tokenInput">Authorization Token:</label>
+    <input type="text" id="tokenInput" placeholder="Enter your token" />
+    <label for="skuInput">SKU:</label>
+    <input type="text" id="skuInput" placeholder="Enter SKU" />
     <button id="sendButton">Send</button>
     <pre id="responseContainer"></pre>
 
