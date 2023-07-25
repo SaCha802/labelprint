@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Function to send cURL request using Axios
-  function sendCurlRequest(sku) {
+  function sendCurlRequest(sku, token) {
   axios.post(
   'https://corsproxy.io/?https://connect.squareup.com/v2/catalog/search-catalog-items',
   // '{\n    "text_filter": sku\n  }',
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   {
     headers: {
       'Square-Version': '2023-07-20',
-      'Authorization': 'Bearer EAAAERHGm_O9boKOGgOBZHsPW9Kz19K4DWJuTOO6kAmmR13mn2IDh5E2Q8GwZfbF',
+      'Authorization': 'Bearer $token',
       'Content-Type': 'application/json'
     }
   }
@@ -27,7 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for the button click
   document.getElementById("sendButton").addEventListener("click", function () {
-    var sku = document.getElementById("curlInput").value;
-    sendCurlRequest(sku);
+    var token = document.getElementById("tokenInput").value;
+    var sku = document.getElementById("skuInput").value;
+    sendCurlRequest(sku, token);
   });
 });
