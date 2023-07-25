@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function sendCurlRequest(sku) {
   axios.post(
   'https://corsproxy.io/?https://connect.squareup.com/v2/catalog/search-catalog-items',
-  // '{\n    "text_filter": "050000105229"\n  }',
+  // '{\n    "text_filter": sku\n  }',
   {
-    'text_filter': '$sku'
+    'text_filter': sku,
   },
   {
     headers: {
