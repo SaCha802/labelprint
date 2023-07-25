@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to send cURL request using Axios
   function sendCurlRequest(curlCommand) {
   axios.post(
-  'https://crossorigin.me/https://connect.squareup.com/v2/catalog/search-catalog-items',
+  'https://corsproxy.io/?https://connect.squareup.com/v2/catalog/search-catalog-items',
   // '{\n    "text_filter": "050000105229"\n  }',
   {
     'text_filter': '050000105229'
