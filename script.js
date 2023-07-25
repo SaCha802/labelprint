@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to send cURL request using Axios
     function sendCurlRequest(sku, token) {
         axios.post(
-            'https://your-cors-proxy-url.com/https://connect.squareup.com/v2/catalog/search-catalog-items',
+            'https://corsproxy.io/?https://connect.squareup.com/v2/catalog/search-catalog-items',
             {
                 'text_filter': sku,
             },
