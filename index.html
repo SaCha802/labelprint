@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Pychotka Deli Label Printer</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Price Tag Generator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <h1>Pychotka Deli Label Printer</h1>
-    <label for="tokenInput">Authorization Token:</label>
+  <div class="container">
+    <div><img src="https://img1.wsimg.com/isteam/ip/c5ca2286-e6a6-43c8-86b5-77d77e9c1a1b/1Artboard%201-4.png/:/rs=w:356,h:200,cg:true,m/cr=w:356,h:200/qt=q:95">
+    </div>
+    <div>
+      <label for="tokenInput">Authorization Token</label>
     <input type="text" id="tokenInput" placeholder="Enter your token" />
-    <label for="skuInput">SKU:</label>
-    <input type="text" id="skuInput" placeholder="Enter SKU" />
-    <button id="sendButton">Send</button>
-    <br><br>
-    <label id="machedID"></label>
-    <br><br>
-    <label id="name"></label>
-    <br><br>
-    <label id="var"></label>
-    <br><br>
-    <label id="price"></label>
+    </div>
+    <div>
+      <label for="skuInput">SKU</label>
+    <input type="text" id="skuInput" placeholder="Enter SKU" oninput="checkInputLength()"/>
+    </div>
+    <button id="addBtn">Add Price Tag</button>
+    <button id="printBtn">Print Price Tags</button>
+    <iframe id="pdfViewer" width="400" height="200"></iframe>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" async></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
