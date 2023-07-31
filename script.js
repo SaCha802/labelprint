@@ -83,7 +83,7 @@ function generatePDF(priceTags, print) {
   });
     content.push(
       { text: tag.product, fontSize: 12, bold: true, alignment: 'center', font: 'Helvetica' })
-    if (product_var != "Regular") {
+    if (tag.var != "Regular") {
       content.push({ text: tag.var, fontSize: 12, alignment: 'center', font: 'Helvetica' })
     }
     content.push(
