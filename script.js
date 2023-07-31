@@ -74,12 +74,13 @@ function generatePDF(priceTags, print) {
   }
 
   const content = [];
+ 
+
+  priceTags.forEach(tag => {
   const barcodeCanvas = document.createElement('canvas');
   JsBarcode(barcodeCanvas, tag.sku, {
     displayValue: false,
   });
-
-  priceTags.forEach(tag => {
     content.push(
       { text: tag.product, fontSize: 12, bold: true, alignment: 'center', font: 'Helvetica' })
     if (product_var != "Regular") {
