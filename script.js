@@ -41,7 +41,7 @@ async function sendRequest(sku, token) {
   } catch (error) {
     // Display the error in the responseContainer div
     alert('No matching SKU found.');
-    throw error; 
+    throw error;
   }
 }
 
@@ -50,20 +50,20 @@ async function searchItem() {
   const skuInput = document.getElementById('skuInput').value.trim();
   const tokenInput = document.getElementById('tokenInput').value.trim();
   if (tokenInput !== '' && skuInput !== '') {
-      const item = await sendRequest(skuInput, tokenInput);
-      console.log(item[0]);
-      priceTag = [{ product: item[0], var: item[1], price: item[2], sku: item[3] }];
-      generatePDF(priceTag, 0);
+    const item = await sendRequest(skuInput, tokenInput);
+    console.log(item[0]);
+    priceTag = [{ product: item[0], var: item[1], price: item[2], sku: item[3] }];
+    generatePDF(priceTag, 0);
   }
   document.getElementById('skuInput').value = '';
 }
 
 function printItems() {
   generatePDF(priceTags, 1);
-  }
+}
 
 function addPriceTag() {
-priceTags.push(priceTag[0]);
+  priceTags.push(priceTag[0]);
 }
 
 // Function to generate and save the PDF
@@ -74,22 +74,23 @@ function generatePDF(priceTags, print) {
   }
 
   const content = [];
+  const barcodeCanvas = document.createElement('canvas');
+  JsBarcode(barcodeCanvas, tag.sku, {
+    displayValue: false,
+  });
 
   priceTags.forEach(tag => {
     content.push(
-      { text: tag.product, fontSize: 13, bold: true, alignment: 'center', font: 'Helvetica' },
-      { text: tag.var, fontSize: 12, alignment: 'center', font: 'Helvetica'  },
-      { text: `$${tag.price}`, fontSize: 36, bold: true,  alignment: 'center', font: 'Helvetica'  },
+      { text: tag.product, fontSize: 12, bold: true, alignment: 'center', font: 'Helvetica' })
+    if (product_var != "Regular") {
+      content.push({ text: tag.var, fontSize: 12, alignment: 'center', font: 'Helvetica' })
+    }
+    content.push(
+      { text: `$${tag.price}`, fontSize: 36, bold: true, alignment: 'center', font: 'Helvetica' },
     );
 
-    const barcodeCanvas = document.createElement('canvas');
-    JsBarcode(barcodeCanvas, tag.sku, {
-      displayValue: false,
-    });
-
-    // Convert the barcode canvas to an image and add it to the content
-    content.push({ image: barcodeCanvas.toDataURL(), width: 200, height: 50, alignment: 'center' },
-      { text: tag.sku, fontSize: 10, alignment: 'center', characterSpacing: 2 , font: 'Helvetica' },
+    content.push({ text: tag.sku, fontSize: 10, alignment: 'center', characterSpacing: 2, font: 'Helvetica' },
+      { image: barcodeCanvas.toDataURL(), width: 200, height: 50, alignment: 'center' },
     );
   });
 
@@ -115,14 +116,14 @@ function generatePDF(priceTags, print) {
     iframe.src = `data:application/pdf;base64,${dataUrl}`;
   });
 
-  if(print == true) {
-  pdfMake.createPdf(documentDefinition).print();
-}
+  if (print == true) {
+    pdfMake.createPdf(documentDefinition).print();
+  }
 }
 
 function checkInputLength() {
   const inputElement = document.getElementById('skuInput');
-  
+
   if (inputElement.value.length > 11) {
     searchItem();
   }
