@@ -123,7 +123,7 @@ function generatePDF(priceTags, print) {
 function checkInputLength() {
   const inputElement = document.getElementById('skuInput');
   
-  if (inputElement.value.length === 12) {
+  if (inputElement.value.length === 12 && inputElement.value.length === 13) {
     searchItem();
   }
 }
