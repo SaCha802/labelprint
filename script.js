@@ -23,7 +23,7 @@ async function sendRequest(sku, token) {
         }
       }
     );
-
+    console.log(response.data);
     for (var item of response.data.items) {
       for (var variations of item.item_data.variations) {
         if (variations.id == response.data.matched_variation_ids) {
@@ -123,7 +123,7 @@ function generatePDF(priceTags, print) {
 function checkInputLength() {
   const inputElement = document.getElementById('skuInput');
   
-  if (inputElement.value.length >= 12) {
+  if (inputElement.value.length > 11) {
     searchItem();
   }
 }
